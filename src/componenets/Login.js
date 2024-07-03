@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
-import '../styles/login.css';
+import React, { useState } from "react";
+import "../styles/login.css";
+import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your login logic here
-    console.log('Logging in:', { email, password });
+    console.log("Logging in:", { email, password });
+    axios
+      .post("http://localhost:5001/api/user/login", { username:email, password })
+      .then((res) => {
+        console.log("res: ", res.data);
+        localStorage.setItem("user",JSON.stringify(res.data))
+        window.location.href="/"
+      });
   };
 
   return (
@@ -16,9 +24,9 @@ const Login = () => {
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Username</label>
           <input
-            type="email"
+            type="text"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -35,7 +43,9 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit" className="btn">Login</button>
+        <button type="submit" className="btn">
+          Login
+        </button>
       </form>
     </div>
   );

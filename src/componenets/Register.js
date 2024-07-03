@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/register.css';
+import axios from 'axios';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -9,7 +10,13 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your register logic here
-    console.log('Registering:', { username, email, password });
+    // console.log("Registering:", { username, email, password });
+    axios.post("http://localhost:5001/api/user/add-user",{ username, email, password } ).then((res) => {
+      console.log(res.data);
+      window.location.href = "/login"
+    }).catch((err) =>{
+      console.log("register failed:", err);
+    });
   };
 
   return (

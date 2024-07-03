@@ -1,0 +1,76 @@
+.post-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    position: relative;
+  }
+  
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .post-header h2 {
+    margin: 0;
+    flex-grow: 1;
+  }
+  
+  .post-actions {
+    position: relative;
+  }
+  
+  .dots {
+    cursor: pointer;
+    user-select: none;
+    padding: 4px 8px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .actions-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .actions-menu a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: #007bff;
+    text-decoration: none;
+    margin: 4px 0;
+    border-radius: 4px;
+  }
+  
+  .actions-menu a:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .actions-menu a .fa-icon {
+    margin-right: 8px;
+  }
+  
+  .post-content {
+    margin: 16px 0;
+  }
+  
+  .post-meta {
+    font-size: 0.9em;
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+  }
+  
